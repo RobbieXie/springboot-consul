@@ -1,6 +1,7 @@
 # springboot-consul
 
 #1. Register Service
+
         // register new service with associated health check
         NewService newService = new NewService();
         newService.setId(id);
@@ -18,6 +19,7 @@
         consulClient.agentServiceRegister(newService);
 
 #2. Deregister Service
+
         List<HealthService> response = consulClient.getHealthServices(clientName,false,null).getValue();
         System.out.println(response.size());
         for(HealthService service : response){
